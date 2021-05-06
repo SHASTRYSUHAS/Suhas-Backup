@@ -7,10 +7,6 @@ import re
 from CmdConfigParser import AWSCliArgs
 
 def connectECRClient(aws_region, access_key_id, secret_access_key):
-	# aws_region = 'us-east-1'
-
-	# access_key_id = 'AKIAR6MB44IZNFDTOPF7'
-	# secret_access_key = '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'
 
 	try:
 		ecr_client = boto3.client(
