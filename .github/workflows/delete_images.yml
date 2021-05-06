@@ -1,8 +1,12 @@
 name: Cleanup old Images from ECR
 
 on:
-    schedule:
-        - cron: '0 12 * * *' #runs at 12:00 UTC everyday
+    #schedule:
+        #- cron: '0 12 * * *' #runs at 12:00 UTC everyday
+    pull_request:
+        branches: [main]
+    push:
+        branches: [main]
 
 jobs:
     delete_ecr_images:
