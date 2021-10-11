@@ -1,0 +1,29 @@
+on:
+  push:
+    branches: [main]
+
+name: Verify Filename
+
+jobs:
+  verify_filecontent:
+    name: Check if the cheked in files has testcases
+    runs-on: ubuntu-latest
+
+    env:      
+      REPOSITORY_NAME: ${{ github.event.repository.name }}
+      REPOSITORY_OWNER: ${{ github.repository_owner }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get Added file list
+      id: new-files
+      uses: tj-actions/changed-files@v10
+
+    - name: List all added files
+      run: |
+      echo "${{ steps.new-files.outputs.added_files }}"
+      for file in in "${{ steps.new-files.outputs.added_files }}"; do
+        echo "$file was added"
+      done
