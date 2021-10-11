@@ -23,7 +23,7 @@ jobs:
 
     - name: List all added files
       run: |
-      echo "${{ steps.new-files.outputs.added_files }}"
-      for file in "${{ steps.new-files.outputs.added_files }}"; do
-        echo "$file was added"
-      done
+        echo "${{ steps.new-files.outputs.added_files }}"
+        for file in "${{ steps.new-files.outputs.added_files }}"; do
+          echo "$file was added";
+        done
